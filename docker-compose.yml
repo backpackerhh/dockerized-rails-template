@@ -1,0 +1,23 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: secret
+
+  app:
+    image: my-new-app # FIXME: use desired image name
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/usr/app
+    depends_on:
+      - db
+
+volumes:
+  postgres-data:
