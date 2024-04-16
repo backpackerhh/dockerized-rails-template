@@ -1,0 +1,48 @@
+require:
+  - rubocop-performance
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  SuggestExtensions: false
+  NewCops: enable
+
+# Styles
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
+
+Style/Documentation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NegatedIf:
+  Enabled: false
+
+# Metrics
+
+Metrics/MethodLength:
+  Enabled: true
+  CountAsOne: ["array", "hash", "heredoc", "method_call"]
+
+Metrics/AbcSize:
+  Enabled: true
+  CountRepeatedAttributes: false
+
+# Tests
+
+RSpec/ExampleLength:
+  Enabled: true
+  CountAsOne: ["array", "hash", "heredoc", "method_call"]
+  Exclude:
+    - "spec/requests/**/*_request_spec.rb"
+
+RSpec/MessageSpies:
+  Enabled: true
+  EnforcedStyle: receive
+
+RSpecRails/InferredSpecType:
+  Enabled: false

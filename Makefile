@@ -23,6 +23,9 @@ destroy:
 install:
 	@docker compose exec app bundle install
 
+lint:
+	@docker compose exec app bundle exec rubocop
+
 logs:
 	@docker compose logs $(SERVICE) -f
 
