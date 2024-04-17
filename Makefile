@@ -3,6 +3,10 @@ DB_NAME := my_new_app_$(APP_ENV) # FIXME: use desired database name
 DB_USER := postgres
 STEPS := 1
 PORT := 3000
+WORKDIR := /usr/app
+
+export PORT
+export WORKDIR
 
 db-connect:
 	@docker compose exec db psql -U $(DB_USER) -d $(DB_NAME)
