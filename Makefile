@@ -2,6 +2,7 @@ APP_ENV := development
 DB_NAME := my_new_app_$(APP_ENV) # FIXME: use desired database name
 DB_USER := postgres
 STEPS := 1
+TEST_PATH := spec
 PORT := 3000
 WORKDIR := /usr/app
 
@@ -54,6 +55,9 @@ console:
 
 routes:
 	@docker compose exec app bundle exec rails routes
+
+test:
+	@docker compose exec app bundle exec rspec ${TEST_PATH}
 
 lint:
 	@docker compose exec app bundle exec rubocop
