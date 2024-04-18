@@ -14,11 +14,17 @@ $ cp config/database.yml{.sample,}
 
 Change the database name for **development** and **test** environments. Look for the *FIXME* comments inside that file.
 
-Specify the same database name as the default value of `DB_NAME` in `Makefile`, keeping the environment as suffix.
+Specify the same database name as the default value of `DB_NAME` variable in `Makefile`, keeping the environment as suffix.
 
 In `docker-compose.yml` file, specify the desired image name.
 
-Add `.ruby-version` file with the desired version.
+Generate `config/master.key` and `config/credentials.yml.enc` with following command:
+
+```bash
+$ make edit-credentials
+```
+
+VIM is used inside the container to edit the encrypted credentials.
 
 ### Commands
 

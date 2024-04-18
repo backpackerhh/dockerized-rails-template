@@ -69,3 +69,6 @@ logs:
 # control + p, control + q for ending the debugging session
 debug:
 	@docker attach $$(docker compose ps -q app)
+
+edit-credentials:
+	@docker compose exec app env EDITOR="vim" bundle exec rails credentials:edit
