@@ -38,7 +38,16 @@ module App
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
 
-    # Don't generate system test files.
-    config.generators.system_tests = nil
+    # Generators
+    config.generators do |g|
+      g.helper = false
+      g.stylesheets = false
+      g.test_framework :rspec, fixtures: false
+      g.system_specs = false
+      g.request_specs = true
+      g.controller_specs = false
+      g.view_specs = false
+      g.routing_specs = false
+    end
   end
 end
