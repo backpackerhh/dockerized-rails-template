@@ -18,14 +18,6 @@ Specify the same database name as the default value of `DB_NAME` variable in `Ma
 
 In `docker-compose.yml` file, specify the desired image name.
 
-Generate `config/master.key` and `config/credentials.yml.enc` with following command:
-
-```bash
-$ make edit-credentials
-```
-
-VIM is used inside the container to edit the encrypted credentials.
-
 ### Commands
 
 The first time you will need to build the application:
@@ -46,6 +38,22 @@ $ make start-build PORT=3001
 Combine options as needed.
 
 The server will be running on port 3000 by default, unless otherwise specified.
+
+Generate `config/master.key` and `config/credentials.yml.enc` with following command:
+
+```bash
+$ make edit-credentials
+```
+
+VIM is used inside the container to edit the encrypted credentials.
+
+Restart server without restarting containers:
+
+```bash
+$ make restart-server
+```
+
+#### Other useful commands
 
 Start containers without building them:
 
@@ -70,12 +78,6 @@ Destroy containers:
 
 ```bash
 $ make destroy
-```
-
-Restart server without restarting containers:
-
-```bash
-$ make restart-server
 ```
 
 Check `Makefile` for other useful commands.
